@@ -1,6 +1,47 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-const Terms = () => {
+interface SectionProps {
+  children: ReactNode;
+}
+
+interface SectionTitleProps {
+  children: ReactNode;
+}
+
+interface ListProps {
+  children: ReactNode;
+}
+
+interface ListItemProps {
+  children: ReactNode;
+}
+
+const Section: React.FC<SectionProps> = ({ children }) => (
+  <div className="space-y-6">{children}</div>
+);
+
+const SectionTitle: React.FC<SectionTitleProps> = ({ children }) => (
+  <h2 className="text-2xl font-semibold tracking-tight mb-6 bg-gradient-to-r from-[#FF8DCA] via-[#FF59A2] to-[#FF8DCA] bg-clip-text text-transparent">
+    {children}
+  </h2>
+);
+
+const List: React.FC<ListProps> = ({ children }) => (
+  <div className="space-y-4">{children}</div>
+);
+
+const ListItem: React.FC<ListItemProps> = ({ children }) => (
+  <div className="flex gap-4 items-start">
+    <div className="mt-2">
+      <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#FF8DCA] via-[#FF59A2] to-[#FF8DCA]" />
+    </div>
+    <div className="text-muted-foreground/90 leading-relaxed flex-1">
+      {children}
+    </div>
+  </div>
+);
+
+const Terms: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto px-6 pb-24 relative overflow-hidden">
       {/* Background Elements */}
@@ -154,30 +195,5 @@ const Terms = () => {
     </div>
   );
 };
-
-const Section = ({ children }) => (
-  <div className="space-y-6">{children}</div>
-);
-
-const SectionTitle = ({ children }) => (
-  <h2 className="text-2xl font-semibold tracking-tight mb-6 bg-gradient-to-r from-[#FF8DCA] via-[#FF59A2] to-[#FF8DCA] bg-clip-text text-transparent">
-    {children}
-  </h2>
-);
-
-const List = ({ children }) => (
-  <div className="space-y-4">{children}</div>
-);
-
-const ListItem = ({ children }) => (
-  <div className="flex gap-4 items-start">
-    <div className="mt-2">
-      <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#FF8DCA] via-[#FF59A2] to-[#FF8DCA]" />
-    </div>
-    <div className="text-muted-foreground/90 leading-relaxed flex-1">
-      {children}
-    </div>
-  </div>
-);
 
 export default Terms;
