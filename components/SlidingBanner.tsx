@@ -9,7 +9,7 @@ function SlidingBanner() {
     <section 
       className="w-full overflow-hidden relative" 
       style={{
-        background: 'linear-gradient(90deg, #ff69b4, #9333ea, #ff69b4)',
+        background: 'linear-gradient(90deg, #FF8DCA, #FF59A2)',
         backgroundSize: '200% 100%',
         animation: 'gradientMove 15s linear infinite'
       }}
