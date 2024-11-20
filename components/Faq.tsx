@@ -54,7 +54,7 @@ const Faq = () => {
         <RevealAnimation screenReveal>
           <div className="inline-flex items-center gap-2 rounded-full border border-[#FF59A2]/20 bg-gradient-to-r from-[#FF8DCA]/[0.05] to-[#FF59A2]/[0.05] px-6 py-3 backdrop-blur-sm">
             <MessageCircleQuestionIcon size={16} className="text-[#FF59A2]" />
-            <span className="bg-gradient-to-r from-[#FF8DCA] via-[#FF59A2] to-[#FF8DCA] bg-clip-text text-transparent font-semibold">
+            <span className="bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] bg-clip-text text-transparent font-semibold">
               Got questions? We&apos;ve got answers
             </span>
           </div>
@@ -62,7 +62,7 @@ const Faq = () => {
 
         <RevealAnimation screenReveal delay={0.2}>
           <h2 className="mt-6 text-4xl font-bold tracking-tight">
-            <span className="bg-gradient-to-r from-[#FF8DCA] via-[#FF59A2] to-[#FF8DCA] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] bg-clip-text text-transparent">
               FAQ
             </span>
           </h2>
