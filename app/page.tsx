@@ -19,6 +19,7 @@ export default function Home() {
       <TopNotification />
       <Header />
       <Hero />
+      <SlidingBanner />
       <Aboutus />
       <Products />
       <Features />
