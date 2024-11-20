@@ -262,7 +262,7 @@ const Footer: React.FC = () => {
           </p>
           
           <Link 
-            href="https://discord.gg/hyperboosts" 
+            href="https://fakecrime.bio/satorultc" 
             target="_blank"
           >
             <motion.div 
@@ -270,10 +270,10 @@ const Footer: React.FC = () => {
               className="group"
             >
               <div className="flex flex-col items-center md:items-end">
-                <span className="text-xs text-brandGray/70">Developed By</span>
+                <span className="text-xs text-brandGray/70">Edited By</span>
                 <span className="font-bold text-[#ec3d6f] relative">
                   <span className="absolute inset-0 bg-[#ec3d6f]/20 blur-lg group-hover:blur-xl transition-all duration-200" />
-                  <span className="relative">Choppa</span>
+                  <span className="relative">Satoru</span>
                 </span>
               </div>
             </motion.div>
