@@ -76,27 +76,35 @@ const Hero = () => {
               </div>
 
               <div className={`flex flex-col gap-4 sm:flex-row transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} delay-700`}>
-              <Link href="/#products">
-  <Button 
-    size="lg"
-    className="group relative w-44 overflow-hidden bg-gradient-to-r from-[#ff8dca] to-[#ff59a2] text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#ff8dca]/25 flex items-center justify-center gap-2"
-  >
-    <ShoppingBag className="h-4 w-4" />
-    Shop Now
-    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-  </Button>
-</Link>
-                
-                <Link href={LINKS.DISCORD}>
-                  <Button 
-                    variant="outline" 
-                    size="lg"
-                    className="w-44 border-[#ff8dca]/20 bg-gradient-to-r from-[#ff8dca]/[0.05] to-[#ff59a2]/[0.05] backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-[#ff8dca]/30 hover:from-[#ff8dca]/10 hover:to-[#ff59a2]/10"
-                  >
-                    <DiscordLogoIcon className="mr-2 h-5 w-5 text-white" />
-                    Join Discord
-                  </Button>
-                </Link>
+              <div className={`flex flex-col gap-4 sm:flex-row transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} delay-700`}>
+  <Link href="/#products">
+    <Button 
+      size="lg"
+      className="group relative w-44 overflow-hidden bg-gradient-to-r from-[#ff8dca] to-[#ff59a2] text-white flex items-center justify-center gap-2 transition-all duration-300 ease-in-out transform-gpu hover:scale-105 hover:shadow-lg hover:shadow-[#ff8dca]/25"
+    >
+      <div className="flex items-center gap-2">
+        <ShoppingBag className="h-4 w-4" />
+        Shop Now
+        <ArrowRight 
+          className="h-4 w-4 transform-gpu transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+        />
+      </div>
+    </Button>
+  </Link>
+  
+  <Link href={LINKS.DISCORD}>
+    <Button 
+      variant="outline" 
+      size="lg"
+      className="group relative w-44 border-[#ff8dca]/20 bg-gradient-to-r from-[#ff8dca]/[0.05] to-[#ff59a2]/[0.05] backdrop-blur-sm flex items-center justify-center gap-2 transition-all duration-300 ease-in-out transform-gpu hover:scale-105 hover:border-[#ff8dca]/30 hover:from-[#ff8dca]/10 hover:to-[#ff59a2]/10"
+    >
+      <div className="flex items-center gap-2">
+        <DiscordLogoIcon className="h-5 w-5 text-white" />
+        Join Discord
+      </div>
+    </Button>
+  </Link>
+</div>
               </div>
 
               <div className={`grid w-full grid-cols-3 gap-4 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} delay-1000`}>
