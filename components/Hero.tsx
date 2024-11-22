@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, ShoppingBag} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './ui/button';
@@ -76,15 +76,16 @@ const Hero = () => {
               </div>
 
               <div className={`flex flex-col gap-4 sm:flex-row transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} delay-700`}>
-                <Link href="/#products">
-                  <Button 
-                    size="lg"
-                    className="group relative w-44 overflow-hidden bg-gradient-to-r from-[#ff8dca] to-[#ff59a2] text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#ff8dca]/25"
-                  >
-                    Shop Now
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
+              <Link href="/#products">
+  <Button 
+    size="lg"
+    className="group relative w-44 overflow-hidden bg-gradient-to-r from-[#ff8dca] to-[#ff59a2] text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#ff8dca]/25 flex items-center justify-center gap-2"
+  >
+    <ShoppingBag className="h-4 w-4" />
+    Shop Now
+    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+  </Button>
+</Link>
                 
                 <Link href={LINKS.DISCORD}>
                   <Button 
