@@ -1,6 +1,6 @@
 export const LINKS = {
   DISCORD: "https://discord.gg/hypergate",
-  TELEGRAM: "https://t.me/",
+  TELEGRAM: "https://t.me/hyperboostss",
   TWITTER: "https://x.com",
   TRUSTPILOT: "https://hyperboostss.mysellix.io/feedback",
 };
