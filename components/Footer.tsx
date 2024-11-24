@@ -1,248 +1,155 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
-import { 
-  Home,
-  ShoppingCart,
-  HelpCircle,
-  Info,
-  MessageCircle,
-  TrendingUp,
-  LucideIcon,
-  ArrowRight,
-  HomeIcon,
-  ShoppingBag
-} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "./ui/button";
-import { DiscordIcon, TelegramIcon, TwitterIcon } from "@/assests/svgs";
+import { ArrowRight, Sparkles, MessageCircle, ExternalLink, Home, ShoppingCart, Users, HelpCircle, Send, MessageSquare } from "lucide-react";
 import { LINKS, LandingPageLinks } from "./config";
-
-type IconComponent = LucideIcon | React.FC<{ className?: string }>;
-
-interface IconButtonProps {
-  href?: string;
-  icon: IconComponent;
-  label: string;
-}
-
-const Footer: React.FC = () => {
-  const getIcon = (name: string): IconComponent => {
-    switch (name.toLowerCase()) {
-      case 'home':
-        return Home;
-      case 'pricing':
-        return TrendingUp;
-      case 'services':
-        return ShoppingCart;
-      case 'about':
-        return Info;
-      case 'support':
-        return HelpCircle;
-      case 'contact':
-        return MessageCircle;
-      default:
-        return ShoppingCart;
-    }
-  };
-
+const Footer = () => {
   return (
-    <footer className="relative mt-20">
-      {/* Animated Gradient Border */}
-      <div className="absolute top-0 left-0 right-0 h-[1px]">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FF8DCA]/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FF8DCA] to-transparent animate-shimmer" />
-      </div>
+    <footer className="relative mt-16 bg-gradient-to-b from-black/40 to-black/60 backdrop-blur-xl border-t border-white/5">
+      {/* Animated gradient border */}
+      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF8DCA] to-transparent animate-gradient-x" />
+      
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Main Content */}
+        <div className="flex flex-col lg:flex-row justify-between gap-16">
+          {/* Brand Section */}
+          <div className="max-w-sm">
+            <Link href="/">
+              <div className="flex items-center gap-3 group hover:scale-[1.02] transition-all duration-300">
+                <Image 
+                  src="/logo.png" 
+                  alt="Hyper Boosts" 
+                  width={38} 
+                  height={38} 
+                  className="rounded-xl brightness-110"
+                />
+                <span className="text-xl text-white font-bold tracking-tight">
+                  Hyper Boosts
+                </span>
+              </div>
+            </Link>
+            
+            <p className="mt-5 text-sm font-medium text-gray-300 leading-relaxed">
+              Premium Discord boosting services with instant delivery and 24/7 dedicated support. Experience the difference with Hyper Boosts.
+            </p>
 
-      <div className="relative max-w-7xl mx-auto px-4 xl:px-6 py-16">
-        <div className="flex flex-col gap-16">
-          {/* Main Content */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-            {/* Brand Section */}
-            <div className="space-y-6">
-              <Link href="/" className="inline-block">
-                <div className="flex items-center gap-3">
-                  <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.7, ease: "easeInOut" }}
-                  >
-                    <Image 
-                      src="/logo.png" 
-                      alt="Hyper Boosts" 
-                      width={45} 
-                      height={45} 
-                      className="rounded-xl"
-                    />
-                  </motion.div>
-                  <motion.span 
-                    className="text-2xl font-bold PoseidonFont bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] bg-clip-text text-transparent"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    Hyper Boosts
-                  </motion.span>
-                </div>
+            {/* Disclaimer */}
+            <p className="mt-4 text-xs font-medium bg-gradient-to-r from-gray-300 via-gray-400 to-gray-300 bg-clip-text text-transparent">
+              Hyper Boosts is not affiliated with Discord by any means.
+            </p>
+
+             {/* Quick Action Buttons */}
+             <div className="mt-6 flex flex-wrap gap-3">
+              <Link href={LINKS?.DISCORD}>
+                <button className="group relative px-5 py-2.5 bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] rounded-lg text-white text-sm font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,141,202,0.3)] hover:-translate-y-0.5">
+                  <div className="absolute inset-0 bg-white/20 translate-y-8 group-hover:translate-y-0 transition-transform duration-300" />
+                  <span className="relative flex items-center gap-2">
+                    <MessageSquare className="w-4 h-4" />
+                    Join Discord
+                  </span>
+                </button>
               </Link>
-              
-              <p className="text-brandGray/90 leading-relaxed">
-                Hyper Boosts is a Discord shop that sells high-quality Discord boosts, tools, and more. 
-                We offer a wide range of services to help you grow your community.
-              </p>
-              
-              <p className="text-sm font-medium bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] bg-clip-text text-transparent">
-                Hyper Boosts is not affiliated or endorsed by Discord in any way.
-              </p>
-              
-              {/* Social Links */}
-              <div className="flex gap-3 pt-2">
-                <Link href={LINKS?.DISCORD} target="_blank">
-                  <motion.div 
-                    whileHover={{ scale: 1.1 }}
-                    className="p-2 rounded-full"
-                  >
-                    <DiscordIcon className="w-6 h-6 text-white/70 hover:text-white" />
-                  </motion.div>
+              <Link href="/#products">
+                <button className="group relative px-5 py-2.5 bg-white/5 rounded-lg text-white text-sm font-medium overflow-hidden transition-all duration-300 hover:bg-white/10 border border-white/10 hover:border-white/20 hover:-translate-y-0.5">
+                  <span className="relative flex items-center gap-2">
+                    <ShoppingCart className="w-4 h-4" />
+                    View Services
+                  </span>
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Navigation Links Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 lg:gap-24">
+            {/* Navigation Links */}
+            <div>
+              <h3 className="text-sm text-[#FF8DCA] font-semibold mb-4 flex items-center gap-2">
+                Navigation
+                <div className="h-px flex-1 bg-gradient-to-r from-[#FF8DCA]/50 to-transparent ml-2" />
+              </h3>
+              <div className="space-y-2">
+                {LandingPageLinks?.map((link, index) => (
+                  <Link href={link.link} key={index}>
+                    <div className="group flex items-center text-gray-300 hover:text-white transition-all duration-200">
+                      <span className="text-sm font-medium py-1 relative flex items-center gap-2">
+                        {/* Dynamic icon based on link name */}
+                        {link.name === "Home" && <Home className="w-4 h-4 text-[#FF8DCA]" />}
+                        {link.name === "Shop" && <ShoppingCart className="w-4 h-4 text-[#FF8DCA]" />}
+                        {link.name === "About" && <Users className="w-4 h-4 text-[#FF8DCA]" />}
+                        {link.name}
+                        <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] group-hover:w-full transition-all duration-300 ease-out" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Support Links */}
+            <div>
+              <h3 className="text-sm text-[#FF8DCA] font-semibold mb-4 flex items-center gap-2">
+                Support
+                <div className="h-px flex-1 bg-gradient-to-r from-[#FF8DCA]/50 to-transparent ml-2" />
+              </h3>
+              <div className="space-y-2">
+                <Link href={LINKS?.DISCORD}>
+                  <div className="group flex items-center text-gray-300 hover:text-white transition-all duration-200">
+                    <span className="text-sm font-medium py-1 relative flex items-center gap-2">
+                      <HelpCircle className="w-4 h-4 text-[#FF8DCA]" />
+                      Discord
+                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] group-hover:w-full transition-all duration-300 ease-out" />
+                    </span>
+                  </div>
                 </Link>
-                <Link href={LINKS?.TWITTER} target="_blank">
-                  <motion.div 
-                    whileHover={{ scale: 1.1 }}
-                    className="p-2 rounded-full"
-                  >
-                    <TwitterIcon className="w-6 h-6 text-white/70 hover:text-white" />
-                  </motion.div>
-                </Link>
-                <Link href={LINKS?.TELEGRAM} target="_blank">
-                  <motion.div 
-                    whileHover={{ scale: 1.1 }}
-                    className="p-2 rounded-full"
-                  >
-                    <TelegramIcon className="w-6 h-6 text-white/70 hover:text-white" />
-                  </motion.div>
+                <Link href={LINKS?.TELEGRAM}>
+                  <div className="group flex items-center text-gray-300 hover:text-white transition-all duration-200">
+                    <span className="text-sm font-medium py-1 relative flex items-center gap-2">
+                      <Send className="w-4 h-4 text-[#FF8DCA]" />
+                      Telegram
+                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] group-hover:w-full transition-all duration-300 ease-out" />
+                    </span>
+                  </div>
                 </Link>
               </div>
             </div>
 
             {/* Contact Section */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-medium text-white">Get in Touch</h3>
-              <div className="space-y-4">
+            <div>
+              <h3 className="text-sm text-[#FF8DCA] font-semibold mb-4 flex items-center gap-2">
+                Contact
+                <div className="h-px flex-1 bg-gradient-to-r from-[#FF8DCA]/50 to-transparent ml-2" />
+              </h3>
+              <div>
                 <Link href={LINKS?.DISCORD}>
-                  <div className="flex items-center gap-3 p-3 rounded-lg group">
-                    <div className="p-2 rounded-lg">
-                      <DiscordIcon className="w-4 h-4" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-medium text-white group-hover:text-[#FF8DCA] transition-colors duration-200">
-                        Join our Discord
-                      </span>
-                      <span className="text-xs text-brandGray/60">24/7 Customer Support</span>
-                    </div>
-                  </div>
-                </Link>
-
-                <Link href={LINKS?.TELEGRAM}>
-                  <div className="flex items-center gap-3 p-3 rounded-lg group">
-                    <div className="p-2 rounded-lg">
-                      <TelegramIcon className="w-4 h-4" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-medium text-white group-hover:text-[#FF8DCA] transition-colors duration-200">
-                        Telegram Channel
-                      </span>
-                      <span className="text-xs text-brandGray/60">Updates & Announcements</span>
-                    </div>
+                  <div className="group flex items-center text-gray-300 hover:text-white transition-all duration-200 cursor-pointer">
+                    <span className="text-sm font-medium py-1 relative flex items-center gap-2">
+                      <MessageCircle className="w-4 h-4 text-[#FF8DCA]" />
+                      24/7 Support
+                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] group-hover:w-full transition-all duration-300 ease-out" />
+                    </span>
                   </div>
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Quick Links */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-medium text-white">Quick Links</h3>
-              <nav className="grid grid-cols-1 gap-3 pl-2">
-                {LandingPageLinks?.map((link: { name: string, link: string }, index: number) => {
-                  const Icon = getIcon(link.name);
-                  
-                  return (
-                    <Link 
-                      href={link.link} 
-                      key={index}
-                      className="w-full"
-                    >
-                      <motion.div 
-                        className="group flex items-center gap-3 text-brandGray hover:text-white transition-colors duration-200 w-full"
-                        whileHover={{ 
-                          x: 10,
-                          transition: { duration: 0.2, ease: "easeOut" }
-                        }}
-                      >
-                        <div className="flex items-center gap-2">
-                          <motion.div
-                            initial={{ opacity: 0.7 }}
-                            animate={{ opacity: 0.7 }}
-                            whileHover={{ opacity: 1 }}
-                          >
-                            <Icon className="w-4 h-4 group-hover:text-[#FF8DCA] transition-colors duration-200" />
-                          </motion.div>
-                          <span className="text-sm">{link.name}</span>
-                        </div>
-                        <motion.div
-                          initial={{ opacity: 0, x: -10 }}
-                          whileHover={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="ml-auto"
-                        >
-                          <ArrowRight className="w-4 h-4 text-[#FF8DCA]" />
-                        </motion.div>
-                      </motion.div>
-                    </Link>
-                  );
-                })}
-              </nav>
+        {/* Footer Bottom */}
+        <div className="mt-16 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs font-medium text-gray-400">
+            &copy; {new Date().getFullYear()} Hyper Boosts. All rights reserved.
+          </p>
+          
+          <Link href="https://fakecrime.bio/satorultc" target="_blank">
+            <div className="group relative px-4 py-1.5 bg-gradient-to-r from-[#FF8DCA]/10 to-[#FF59A2]/10 hover:from-[#FF8DCA]/20 hover:to-[#FF59A2]/20 rounded-full flex items-center gap-2 transition-all duration-300">
+              <Sparkles className="w-3.5 h-3.5 text-[#FF8DCA]" />
+              <span className="text-xs font-medium bg-gradient-to-r from-white via-[#FF8DCA] to-white bg-clip-text text-transparent">
+                Developed by Satoru
+              </span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#FF8DCA]" />
             </div>
-          </div>
-
-          {/* Footer Bottom */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5">
-            <p className="text-sm text-brandGray/60">
-              &copy; {new Date().getFullYear()} Hyper Boosts. All rights reserved.
-            </p>
-            
-            <Link 
-              href="https://fakecrime.bio/satorultc" 
-              target="_blank"
-              className="group"
-            >
-              <motion.div 
-                whileHover={{ 
-                  scale: 1.05,
-                  textShadow: "0 0 8px rgb(255, 141, 202)"
-                }}
-                className="relative px-4 py-2 rounded-lg overflow-hidden"
-              >
-                <motion.div 
-                  className="relative flex items-center gap-2"
-                  whileHover={{
-                    color: "#FF8DCA",
-                    transition: { duration: 0.3 }
-                  }}
-                >
-                  <span className="text-sm text-brandGray/60">Edited by</span>
-                  <motion.span 
-                    className="text-sm font-medium bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] bg-clip-text text-transparent"
-                    whileHover={{
-                      scale: 1.1,
-                      transition: { duration: 0.2 }
-                    }}
-                  >
-                    Satoru
-                  </motion.span>
-                </motion.div>
-              </motion.div>
-            </Link>
-          </div>
+          </Link>
         </div>
       </div>
     </footer>
