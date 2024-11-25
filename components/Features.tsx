@@ -10,8 +10,8 @@ import {
   SunMoonIcon,
   WorkflowIcon,
 } from "lucide-react";
-import React, { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import RevealAnimation from "./framer/RevealAnimation";
 
 interface Feature {
@@ -40,7 +40,7 @@ const FeaturesData: Feature[] = [
   },
   {
     icon: <BookCheckIcon size={30} className="text-[#FF8DCA]" />,
-    title: "Trusted & Reputated Seller",
+    title: "Trusted & Reputable Seller",
     description:
       "Our customers consistently provide positive feedback, praising not only our top-tier services but also our premium support.",
   },
@@ -73,16 +73,20 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature, index }) => {
           "relative group flex flex-col items-start p-8 rounded-lg",
           "bg-gradient-to-r from-[#FF8DCA]/[0.05] to-[#FF59A2]/[0.05]",
           "border border-[#FF8DCA]/20 hover:border-[#FF8DCA]/30",
-          "backdrop-blur-sm transition-all"
+          "backdrop-blur-sm transition-all duration-300 overflow-hidden"
         )}
       >
-        {/* Background gradient effect */}
+        {/* Background gradient effect with consistent border radius */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FF8DCA] via-[#FF59A2] to-[#FF8DCA]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FF8DCA] via-[#FF59A2] to-[#FF8DCA] rounded-lg" />
         </div>
 
-        {/* Icon container */}
-        <div className="relative p-4 rounded-xl bg-gradient-to-r from-[#FF8DCA]/[0.05] to-[#FF59A2]/[0.05] border border-[#FF8DCA]/20 group-hover:border-[#FF8DCA]/30">
+        {/* Icon container with consistent border radius */}
+        <div className={cn(
+          "relative p-4 rounded-lg", // Changed from rounded-xl to rounded-lg for consistency
+          "bg-gradient-to-r from-[#FF8DCA]/[0.05] to-[#FF59A2]/[0.05]",
+          "border border-[#FF8DCA]/20 group-hover:border-[#FF8DCA]/30"
+        )}>
           {feature.icon}
         </div>
 
@@ -112,7 +116,11 @@ const Features: React.FC = () => {
       <div className="relative container mx-auto">
         <div className="flex items-center flex-col text-center mb-16">
           <RevealAnimation screenReveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FF8DCA]/20 bg-gradient-to-r from-[#FF8DCA]/[0.05] to-[#FF59A2]/[0.05] px-6 py-3 backdrop-blur-sm">
+            <div className={cn(
+              "inline-flex items-center gap-2 rounded-full", // Kept rounded-full for the tag
+              "border border-[#FF8DCA]/20 bg-gradient-to-r from-[#FF8DCA]/[0.05] to-[#FF59A2]/[0.05]",
+              "px-6 py-3 backdrop-blur-sm"
+            )}>
               <SunMoonIcon size={16} className="text-[#FF8DCA]" />
               <span className="bg-gradient-to-r from-[#FF8DCA] via-[#FF59A2] to-[#FF8DCA] bg-clip-text text-transparent font-semibold">
                 We Have Exciting Features
