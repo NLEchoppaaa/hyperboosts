@@ -68,12 +68,12 @@ const DisplayProducts = ({ products }: { products: any }) => {
           defaultValue={productGroups[0]?.title}
           className="flex flex-col items-center"
         >
-          <TabsList className="flex flex-wrap justify-center h-auto gap-2 mb-8 relative z-10">
+          <TabsList className="flex flex-wrap justify-center h-auto gap-2 mb-8 relative z-10 rounded-lg">
             {productGroups.map((group: ProductGroup, groupIndex: number) => (
               <TabsTrigger 
                 key={groupIndex} 
                 value={group?.title}
-                className="flex-shrink-0 data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#FF8DCA] data-[state=active]:to-[#FF59A2]"
+                className="rounded-md flex-shrink-0 data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#FF8DCA] data-[state=active]:to-[#FF59A2]"
               >
                 {group?.title}
               </TabsTrigger>
@@ -94,9 +94,9 @@ const DisplayProducts = ({ products }: { products: any }) => {
                       screenReveal={true}
                       key={productIndex}
                     >
-                      <div className="group relative flex flex-col rounded-lg bg-[#FF59A2]/5 border border-[#FF8DCA]/20 hover:border-[#FF59A2]/30 backdrop-blur-sm transition-all">
+                      <div className="group relative flex flex-col rounded-lg bg-[#FF59A2]/5 border border-[#FF8DCA]/20 hover:border-[#FF59A2]/30 backdrop-blur-sm transition-all overflow-hidden">
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg">
-                          <div className="absolute inset-0 bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2]" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] rounded-lg" />
                         </div>
                         
                         <div className="px-6 pt-4 pb-6">
@@ -129,12 +129,12 @@ const DisplayProducts = ({ products }: { products: any }) => {
                             ))}
                           </div>
 
-                          <div className="relative group/button overflow-hidden rounded-lg border border-[#FF8DCA]/20 hover:border-[#FF59A2]/30 mt-6">
+                          <div className="relative group/button rounded-lg border border-[#FF8DCA]/20 hover:border-[#FF59A2]/30 mt-6 overflow-hidden">
                             <div className="absolute inset-0 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300">
-                              <div className="absolute inset-0 bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2]" />
+                              <div className="absolute inset-0 bg-gradient-to-r from-[#FF8DCA] to-[#FF59A2] rounded-lg" />
                             </div>
                             <button
-                              className="relative w-full py-3 text-sm bg-[#FF59A2]/5 backdrop-blur-sm"
+                              className="relative w-full py-3 text-sm bg-[#FF59A2]/5 backdrop-blur-sm rounded-lg"
                               data-sellix-product={product?.uniqid}
                               type="button"
                             >
