@@ -1,7 +1,13 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import {
+  motion,
+  useAnimate,
+  animate,
+  useAnimation,
+  useInView,
+} from "framer-motion";
 
 const RevealAnimation = ({
   children,
@@ -24,22 +30,32 @@ const RevealAnimation = ({
   });
 
   useEffect(() => {
+    // fire animation each time it becomes true
     if (inScreenView) {
       controls.start("visible");
+    } else {
+      // controls.start("hidden");
     }
-  }, [inScreenView, controls]); // Added 'controls' to the dependency array
+  }, [inScreenView]);
 
   return (
     <motion.div
-      ref={screenRef}
-      initial={screenReveal ? "hidden" : "visible"}
-      animate={controls}
-      variants={{
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0 },
-      }}
-      transition={{ duration: 0.5, delay: delay }}
       className={className}
+      ref={screenRef}
+      animate={screenReveal ? controls : "visible"}
+      initial="hidden"
+      transition={{
+        duration: 0.5,
+        delay: delay,
+        type: "spring",
+        damping: 12,
+        bounce: 0.1,
+        mass: 2,
+      }}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 50 },
+      }}
     >
       {children}
     </motion.div>
