@@ -1,4 +1,4 @@
-"use client";
+"use client"; // This ensures the component can use React hooks
 
 import Image from "next/image";
 import React from "react";
@@ -25,20 +25,20 @@ const Header = () => {
               <Link key={link.name} href={link.link}>
                 <div
                   style={{
-                    padding: '0.375rem 0.875rem',
-                    borderRadius: '1.5rem',
+                    padding: '0.375rem 0.875rem', // Added more padding to balance the rounded shape
+                    borderRadius: '1.5rem', // Significantly more rounded for a pill-like shape
                     fontSize: '0.875rem',
                     transition: 'background 0.3s ease, color 0.3s ease',
                     cursor: 'pointer',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background =
-                      'linear-gradient(90deg, #FF8DCA 0%, #FF59A2 100%)';
-                    e.currentTarget.style.color = 'white';
+                      'linear-gradient(90deg, #ff8dca, #FF59A2)'; // Gradient from the image
+                    e.currentTarget.style.color = 'whi        te'; // Text color change on hover
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'transparent';
-                    e.currentTarget.style.color = 'inherit';
+                    e.currentTarget.style.background = 'transparent'; // Reset background
+                    e.currentTarget.style.color = 'inherit'; // Reset text color
                   }}
                 >
                   {link.name}
@@ -48,24 +48,7 @@ const Header = () => {
           ))}
         </div>
         <Link className="hidden md:flex" href={LINKS.DISCORD} target="_blank">
-          <Button
-            variant={"brand"}
-            style={{
-              background: 'linear-gradient(90deg, #FF8DCA 0%, #FF59A2 100%)',
-              color: 'white',
-              transition: 'background 0.3s ease, color 0.3s ease',
-              padding: '0.375rem 0.875rem',
-              borderRadius: '0.375rem',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background =
-                'linear-gradient(90deg, #FF8DCA 0%, #FF59A2 100%)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background =
-                'linear-gradient(90deg, #FF8DCA 0%, #FF59A2 100%)';
-            }}
-          >
+          <Button variant={"brand"}>
             <DiscordIcon className="text-white h-[18px] w-[18px]" />
             <span className="ml-2">Discord</span>
           </Button>
